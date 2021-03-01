@@ -1,3 +1,4 @@
+
 node('node2') {
     stage('Checkout'){
         git "https://github.com/akhanal77/pipeline.git"
