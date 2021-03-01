@@ -25,6 +25,7 @@ node('node2') {
             def mvnHome = tool 'm3'
             if(env.BRANCH_NAME !="master"){
                 dir('maventdd')
+		sh 'echo "${BRANCHNAME}"'
                 echo 'No Deployment'
             }
                 else {
