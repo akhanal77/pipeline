@@ -1,4 +1,3 @@
-
 node('node2') {
     stage('Checkout'){
         git "https://github.com/akhanal77/pipeline.git"
@@ -25,6 +24,7 @@ node('node2') {
         stage('Deployment') {
             def mvnHome = tool 'm3'
             if(env.BRANCH_NAME !="master"){
+                dir('maventdd')
                 echo 'No Deployment'
             }
                 else {
