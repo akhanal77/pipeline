@@ -21,16 +21,17 @@ node('node2') {
         sh "'${mvnHome}/bin/mvn' package"
         }
     }
-        stage('Deployment') {
+    if("${BRANCHNAME}"=="master"){
+    	stage('Deployment'){
             def mvnHome = tool 'm3'
-            if("${BRANCHNAME}" !="master"){
-                echo 'No Deployment'
-            }
-                else {
-                    dir('maventdd'){
-                    sh "'${mvnHome}/bin/mvn' install"
+    			dir('maventdd') {
+    			sh "'${mvnHome}/bin/mvn' install"
     			}
         }
-    }
+    } else {
+    	stage('No Deployment'){
+    		sh 'echo "${BRANCHNAME}"'
+    	}
+    	}
 
 }
