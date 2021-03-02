@@ -24,7 +24,7 @@ node('node2') {
     }
         stage('Deployment') {
             def mvnHome = tool 'm3'
-            if(env.BRANCH_NAME !="master"){
+            if("${BRANCHNAME}" !="master"){
                 echo 'No Deployment'
             }
                 else {
