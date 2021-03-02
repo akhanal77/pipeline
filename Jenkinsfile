@@ -1,6 +1,7 @@
 node('node2') {
     stage('Checkout'){
-        git "https://github.com/akhanal77/pipeline.git", 'release'
+        git url: "https://github.com/akhanal77/pipeline.git", branch: "${BRANCHNAME}"
+        	sh 'echo "${BRANCHNAME}"'
         
         }
     stage('Compile'){
@@ -33,5 +34,6 @@ node('node2') {
     		sh 'echo "${BRANCHNAME}"'
     	}
     	}
+    
 
 }
